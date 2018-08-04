@@ -11,7 +11,7 @@ module OmniAuth
     # You must generally register your application with the provider and
     # utilize an application id and secret in order to authenticate using
     # OAuth 2.0.
-    class OAuth2
+    class Ynab
       include OmniAuth::Strategy
 
       def self.inherited(subclass)
@@ -124,4 +124,4 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization "oauth2", "OAuth2"
+OmniAuth.config.add_camelization "ynab", "Ynab"
