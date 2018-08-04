@@ -1,12 +1,12 @@
 require "helper"
 
-describe OmniAuth::Strategies::Ynab do # rubocop:disable Metrics/BlockLength
+describe OmniAuth::Strategies::YNAB do # rubocop:disable Metrics/BlockLength
   def app
     lambda do |_env|
       [200, {}, ["Hello."]]
     end
   end
-  let(:fresh_strategy) { Class.new(OmniAuth::Strategies::Ynab) }
+  let(:fresh_strategy) { Class.new(OmniAuth::Strategies::YNAB) }
 
   before do
     OmniAuth.config.test_mode = true
@@ -20,7 +20,7 @@ describe OmniAuth::Strategies::Ynab do # rubocop:disable Metrics/BlockLength
     subject { fresh_strategy }
 
     it "performs the OmniAuth::Strategy included hook" do
-      expect(OmniAuth.strategies).to include(OmniAuth::Strategies::Ynab)
+      expect(OmniAuth.strategies).to include(OmniAuth::Strategies::YNAB)
       expect(OmniAuth.strategies).to include(subject)
     end
   end
@@ -89,8 +89,8 @@ describe OmniAuth::Strategies::Ynab do # rubocop:disable Metrics/BlockLength
   end
 end
 
-describe OmniAuth::Strategies::Ynab::CallbackError do
-  let(:error) { Class.new(OmniAuth::Strategies::Ynab::CallbackError) }
+describe OmniAuth::Strategies::YNAB::CallbackError do
+  let(:error) { Class.new(OmniAuth::Strategies::YNAB::CallbackError) }
   describe "#message" do
     subject { error }
     it "includes all of the attributes" do

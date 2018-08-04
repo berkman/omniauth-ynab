@@ -1,5 +1,5 @@
 module OmniAuth
-  module Ynab
-    VERSION = "0.0.1".freeze
+  module YNAB
+    VERSION = "0.0.3".freeze
   end
 end
