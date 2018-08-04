@@ -4,6 +4,6 @@
 [![Build Status](http://img.shields.io/travis/berkman/omniauth-ynab.svg)][travis]
 
 [gem]: https://rubygems.org/gems/omniauth-ynab
-[travis]: http://travis-ci.org/omniauth/omniauth-ynab
+[travis]: http://travis-ci.org/berkman/omniauth-ynab
 
 This gem contains a YNAB OAuth2 strategy for OmniAuth.
