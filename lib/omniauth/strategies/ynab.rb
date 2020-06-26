@@ -23,7 +23,9 @@ module OmniAuth
       option :client_id, nil
       option :client_secret, nil
       option :client_options, {
-        :site => 'https://app.youneedabudget.com'
+        :site => 'https://api.youneedabudget.com',
+        :authorize_url => "https://app.youneedabudget.com/oauth/authorize",
+        :token_url => "https://app.youneedabudget.com/oauth/token"
       }
       option :authorize_params, {}
       option :authorize_options, [:scope]
@@ -44,6 +46,10 @@ module OmniAuth
         hash["expires_at"] = access_token.expires_at if access_token.expires?
         hash["expires"] = access_token.expires?
         hash
+      end
+
+      uid do
+        raw_info["data"]["user"]["id"]
       end
 
       def request_phase
@@ -105,6 +111,10 @@ module OmniAuth
           hash[key.to_sym] = options[key]
         end
         hash
+      end
+
+      def raw_info
+        @raw_info ||= self.access_token.get("v1/user").parsed
       end
 
       # An error that is indicated in the OAuth 2.0 callback.
